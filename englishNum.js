@@ -5,7 +5,7 @@ var list = {A1:"one", A2:"two", A3:"three", A4:"four", A5: "five", A6: 'six', A7
 	C8:'eighteen', C9:'nineteen', D:"one hundred"}
 if (isNaN(number)){
 	return "try again";
-}else if (number>999){
+}else if (number>9999){
 	return "try again";
 }else if (number===0){
 	return "zero";
@@ -13,6 +13,8 @@ if (isNaN(number)){
 	return "ten";
 }else if (number<10) {
 	return ones(number);
+}else if (number >= 1000){
+	return thousands(number);
 }else if (number >= 100){
 	return hundreds(number);
 }else if (number < 100 && number >= 20){
@@ -21,6 +23,21 @@ if (isNaN(number)){
 	return teens(number);
 }else return "try again";
 };//englishNumber
+
+var thousands = function (number){
+	
+	if (number / 1000 >= 1){
+	var	a = number / 1000;
+	//console.log(a);
+	var	b = Math.floor(a);
+	//console.log(b);
+	var	c = Math.round((a - b)*1000);
+	//console.log(ones(b) + " thousand " + hundreds(c) + teens(c) + tens(c) + ones(c));
+	
+		return ones(b) + " thousand " + hundreds(c) + teens(c) + tens(c) + ones(c);
+
+	};
+};
 
 var hundreds = function (number){
 	

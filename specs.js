@@ -29,9 +29,9 @@ it("translates 999 to english", function() {
 it("translates 515 to english", function() {
     englishNumber(515).should.equal("five hundred fifteen");
   });
-it("does not work over 999", function() {
-    englishNumber(1000).should.equal("try again");
-  });
+// it("does not work over 999", function() {
+//     englishNumber(1000).should.equal("try again");
+//   });
 it("only works on numbers", function() {
     englishNumber('n').should.equal("try again");
   });
@@ -44,5 +44,8 @@ it("works on ten", function() {
 it("translates ten to english", function() {
     tens(10).should.equal("ten");
 });
+it("Works on thousands: translates 5715 to english", function() {
+    englishNumber(5715).should.equal("five thousand seven hundred fifteen");
+  });
 });
 
