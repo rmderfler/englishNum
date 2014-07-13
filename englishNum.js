@@ -3,14 +3,24 @@ var list = {A1:"one", A2:"two", A3:"three", A4:"four", A5: "five", A6: 'six', A7
 	A9:'nine', B1:'ten', B2:'twenty', B3:'thirty', B4:'forty', B5:'fifty', B6:'sixty', B7:'seventy', B8: "eighty",
 	B9:'ninety', C1:'eleven', C2:'twelve', C3:'thirteen', C4:'fourteen', C5:'fifteen', C6:'sixteen', C7:'seventeen',
 	C8:'eighteen', C9:'nineteen', D:"one hundred"}
-if (number === 100){
-	
-	return list.D;
-}
-
-
-
-}//englishNumber
+if (isNaN(number)){
+	return "try again";
+}else if (number>999){
+	return "try again";
+}else if (number===0){
+	return "zero";
+}else if (number===10){
+	return "ten";
+}else if (number<10) {
+	return ones(number);
+}else if (number >= 100){
+	return hundreds(number);
+}else if (number < 100 && number >= 20){
+	return tens(number);
+}else if (number>10 && number<20){
+	return teens(number);
+}else return "try again";
+};//englishNumber
 
 var hundreds = function (number){
 	
@@ -26,34 +36,34 @@ var hundreds = function (number){
 		//console.log(teens(c));
 		return ones(b) + " hundred " + tens(c) + teens(c) + ones(c);
 
-	}
-}
+	};
+};
 var ones = function (number){
 	var list = {A1:"one", A2:"two", A3:"three", A4:"four", A5: "five", A6: 'six', A7:'seven', A8: 'eight',
 	A9:'nine', B1:'ten', B2:'twenty', B3:'thirty', B4:'forty', B5:'fifty', B6:'sixty', B7:'seventy', B8: "eighty",
 	B9:'ninety', C1:'eleven', C2:'twelve', C3:'thirteen', C4:'fourteen', C5:'fifteen', C6:'sixteen', C7:'seventeen',
 	C8:'eighteen', C9:'nineteen', D:"one hundred"}
-
-	if (number === 9){
+	var x = number;
+	if (x === 9){
 	return list.A9;
-}else if (number===8){
+}else if (x===8){
 	return list.A8;
-}else if (number===7){
+}else if (x===7){
 	return list.A7;
-}else if (number===6){
+}else if (x===6){
 	return list.A6;
-}else if (number===5){
+}else if (x===5){
 	return list.A5;
-}else if (number===4){
+}else if (x===4){
 	return list.A4;
-}else if (number===3){
+}else if (x===3){
 	return list.A3;
-}else if (number===2){
+}else if (x===2){
 	return list.A2;
-}else if (number===1){
+}else if (x===1){
 	return list.A1;
-}else return "";
-}
+}else {return ""};
+};
 
 var tens = function(number){
 	var list = {A1:"one", A2:"two", A3:"three", A4:"four", A5: "five", A6: 'six', A7:'seven', A8: 'eight',
@@ -62,14 +72,16 @@ var tens = function(number){
 	C8:'eighteen', C9:'nineteen', D:"one hundred"}
 
 	var a = number / 10;
-	console.log(a);
+	//console.log(a);
 	var	b = Math.floor(a);
-	console.log(b);
+	//console.log(b);
 	var	c = Math.round((a - b)*10);
-	console.log(c);
+	//console.log(c);
 	if (a>1 && a<2){
 		return"";
-	}else if (b === 9){
+	}else if (b === 1){
+	return list.B1;
+}else if (b === 9){
 	return list.B9 + ones(c);
 }else if (b===8){
 	return list.B8 + ones(c);
@@ -89,7 +101,7 @@ var tens = function(number){
 	return list.B1 + ones(c);
 	}else return "";
 	
-	}//end tens
+	};//end tens
 
 var teens = function(number){
 var list = {A1:"one", A2:"two", A3:"three", A4:"four", A5: "five", A6: 'six', A7:'seven', A8: 'eight',
@@ -116,6 +128,15 @@ var list = {A1:"one", A2:"two", A3:"three", A4:"four", A5: "five", A6: 'six', A7
 }else if (number===11){
 	return list.C1;
 }else return "";
-}
+};
+
+$(document).ready(function(){
+	$("form#eng").submit(function(event){
+		var input = parseInt($("input#engNum").val());
+		var result = englishNumber(input);
+		$("div#result p").text(result);
+		event.preventDefault();
+	});
+});
 
 

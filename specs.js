@@ -1,13 +1,13 @@
 
 describe("englishNumber", function() {
   it("translates numbers to english", function() {
-    englishNumber(100).should.equal("one hundred");
+    englishNumber(100).should.equal("one hundred ");
   });
   it("translates hundreds to english", function() {
     hundreds(100).should.equal("one hundred ");
 });
   it("translates ones to english", function() {
-    ones(2).should.equal("two");
+    ones(7).should.equal("seven");
 });
   it("translates tens to english", function() {
     tens(21).should.equal("twenty one");
@@ -23,6 +23,26 @@ describe("englishNumber", function() {
 });it("translates hundreds, tens, ones to english", function() {
     hundreds(786).should.equal("seven hundred eighty six");
 });
-
+it("translates 999 to english", function() {
+    englishNumber(999).should.equal("nine hundred ninety nine");
+  });
+it("translates 515 to english", function() {
+    englishNumber(515).should.equal("five hundred fifteen");
+  });
+it("does not work over 999", function() {
+    englishNumber(1000).should.equal("try again");
+  });
+it("only works on numbers", function() {
+    englishNumber('n').should.equal("try again");
+  });
+it("works on ones", function() {
+    englishNumber(2).should.equal("two");
+  });
+it("works on ten", function() {
+    englishNumber(10).should.equal("ten");
+  });
+it("translates ten to english", function() {
+    tens(10).should.equal("ten");
+});
 });
 
