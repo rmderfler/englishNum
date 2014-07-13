@@ -47,5 +47,9 @@ it("translates ten to english", function() {
 it("Works on thousands: translates 5715 to english", function() {
     englishNumber(5715).should.equal("five thousand seven hundred fifteen");
   });
+it("Works on thousands: translates 1015 to english", function() {
+    englishNumber(1015).should.equal("one thousand fifteen");
+  });
+
 });
 
