@@ -15,5 +15,14 @@ describe("englishNumber", function() {
   it("translates hundreds, tens, ones to english", function() {
     hundreds(121).should.equal("one hundred twenty one");
 });
+  it("translates teens to english", function() {
+    teens(19).should.equal("nineteen");
+});
+  it("translates hundred and teens to english", function() {
+    hundreds(119).should.equal("one hundred nineteen");
+});it("translates hundreds, tens, ones to english", function() {
+    hundreds(786).should.equal("seven hundred eighty six");
+});
+
 });
 

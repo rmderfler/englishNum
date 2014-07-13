@@ -16,39 +16,106 @@ var hundreds = function (number){
 	
 	if (number / 100 >= 1){
 	var	a = number / 100;
-	console.log(a);
+	//console.log(a);
 	var	b = Math.floor(a);
-	console.log(b);
-	var	c = Math.ceil((a - b)*100);
-	console.log(c);
+	//console.log(b);
+	var	c = Math.round((a - b)*100);
+	//console.log(c);
 		//  call tens on c. call ones on b.
-		console.log(ones(b) + " hundred " +tens(c));
-		return ones(b) + " hundred " + tens(c);
+		//console.log(ones(b) + " hundred " + tens(c) + teens(c) + ones(c));
+		//console.log(teens(c));
+		return ones(b) + " hundred " + tens(c) + teens(c) + ones(c);
 
 	}
 }
 var ones = function (number){
-	var list = {A2:'two'}
-	var a = number / 1;
-	if (a !== 0){
-		if (a === 1) { return "one";
-	}else if (a === 2){
-		return list.A2;
-	}else if (a===0){return""}
-	}
+	var list = {A1:"one", A2:"two", A3:"three", A4:"four", A5: "five", A6: 'six', A7:'seven', A8: 'eight',
+	A9:'nine', B1:'ten', B2:'twenty', B3:'thirty', B4:'forty', B5:'fifty', B6:'sixty', B7:'seventy', B8: "eighty",
+	B9:'ninety', C1:'eleven', C2:'twelve', C3:'thirteen', C4:'fourteen', C5:'fifteen', C6:'sixteen', C7:'seventeen',
+	C8:'eighteen', C9:'nineteen', D:"one hundred"}
+
+	if (number === 9){
+	return list.A9;
+}else if (number===8){
+	return list.A8;
+}else if (number===7){
+	return list.A7;
+}else if (number===6){
+	return list.A6;
+}else if (number===5){
+	return list.A5;
+}else if (number===4){
+	return list.A4;
+}else if (number===3){
+	return list.A3;
+}else if (number===2){
+	return list.A2;
+}else if (number===1){
+	return list.A1;
+}else return "";
 }
 
 var tens = function(number){
-	var list = {B2:'twenty '};
+	var list = {A1:"one", A2:"two", A3:"three", A4:"four", A5: "five", A6: 'six', A7:'seven', A8: 'eight',
+	A9:'nine', B1:'ten', B2:'twenty ', B3:'thirty ', B4:'forty ', B5:'fifty ', B6:'sixty ', B7:'seventy ', B8: "eighty ",
+	B9:'ninety ', C1:'eleven', C2:'twelve', C3:'thirteen', C4:'fourteen', C5:'fifteen', C6:'sixteen', C7:'seventeen',
+	C8:'eighteen', C9:'nineteen', D:"one hundred"}
+
 	var a = number / 10;
+	console.log(a);
 	var	b = Math.floor(a);
-	var	c = Math.floor((a - b)*10);
+	console.log(b);
+	var	c = Math.round((a - b)*10);
 	console.log(c);
-	if (b===2){
-		console.log(ones(c));
-		return list.B2 + ones(c); 
+	if (a>1 && a<2){
+		return"";
+	}else if (b === 9){
+	return list.B9 + ones(c);
+}else if (b===8){
+	return list.B8 + ones(c);
+}else if (b===7){
+	return list.B7 + ones(c);
+}else if (b===6){
+	return list.B6 + ones(c);
+}else if (b===5){
+	return list.B5 + ones(c);
+}else if (b===4){
+	return list.B4 + ones(c);
+}else if (b===3){
+	return list.B3 + ones(c);
+}else if (b===2){
+	return list.B2 + ones(c);
+}else if (b===1){
+	return list.B1 + ones(c);
 	}else return "";
 	
-	}
+	}//end tens
+
+var teens = function(number){
+var list = {A1:"one", A2:"two", A3:"three", A4:"four", A5: "five", A6: 'six', A7:'seven', A8: 'eight',
+	A9:'nine', B1:'ten', B2:'twenty', B3:'thirty', B4:'forty', B5:'fifty', B6:'sixty', B7:'seventy', B8: "eighty",
+	B9:'ninety', C1:'eleven', C2:'twelve', C3:'thirteen', C4:'fourteen', C5:'fifteen', C6:'sixteen', C7:'seventeen',
+	C8:'eighteen', C9:'nineteen', D:"one hundred"}
+	
+	if (number === 19){
+	return list.C9;
+}else if (number===18){
+	return list.C8;
+}else if (number===17){
+	return list.C7;
+}else if (number===16){
+	return list.C6;
+}else if (number===15){
+	return list.C5;
+}else if (number===14){
+	return list.C4;
+}else if (number===13){
+	return list.C3;
+}else if (number===12){
+	return list.C2;
+}else if (number===11){
+	return list.C1;
+}else return "";
+}
 
 
