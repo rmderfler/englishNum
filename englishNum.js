@@ -40,8 +40,10 @@ var thousands = function (number){
 };
 
 var hundreds = function (number){
-	
-	if (number / 100 >= 1){
+	if ((number/100)<1){
+		return tens(c) + teens(c) + ones(c);
+	}
+	else if (number / 100 >= 1){
 	var	a = number / 100;
 	//console.log(a);
 	var	b = Math.floor(a);
